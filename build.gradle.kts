@@ -1,23 +1,6 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-buildscript {
-
-    with(extra) {
-        set("kotlinVersion", "1.1.2-2")
-        set("junitVersion", "4.12")
-    }
-
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${extra["kotlinVersion"]}")
-        classpath("com.github.jengelman.gradle.plugins:shadow:2.0.0")
-    }
-}
-
 plugins {
 
     id("org.jetbrains.kotlin.jvm") version "1.1.2-2"
@@ -40,7 +23,7 @@ dependencies {
     testCompile("org.jetbrains.kotlin:kotlin-test")
     testCompile("org.jetbrains.kotlin:kotlin-test-junit")
 
-    testCompile("junit:junit:${extra["junitVersion"]}")
+    testCompile("junit:junit:4.12")
 }
 
 tasks.withType<KotlinCompile> {
