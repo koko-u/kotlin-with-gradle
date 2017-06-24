@@ -38,3 +38,13 @@ dependencies {
     compile(group = "org.hibernate", name = "hibernate-core", version = "3.6.7.Final")
     testCompile("junit:junit:4.+")
 }
+
+task("listConfigurations") {
+    doLast {
+        val width = project.configurations.map(Configuration::getName).maxBy(String::length)?.length ?: 0
+        project.configurations.forEach { configuration ->
+            println("%${width}s - %s".format(configuration.name, configuration.description))
+            //println("${configuration.name} - ${configuration.description}")
+        }
+    }
+}
