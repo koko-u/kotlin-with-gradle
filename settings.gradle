@@ -1,4 +1,7 @@
 rootProject.buildFileName = 'build.gradle.kts'
 rootProject.name = 'kotlin-with-gradle'
 
-include(":dependency-management")
+include(
+        ":dependency-management",
+        ":create-task"
+)
