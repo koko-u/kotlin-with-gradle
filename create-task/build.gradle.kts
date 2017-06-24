@@ -38,7 +38,7 @@ repeat(4) { counter ->
     task("task$counter") {
         description = "Count number $counter task"
         group = taskDescription
-        
+
         if (counter > 0) {
             dependsOn("task${counter-1}")
         }
@@ -46,5 +46,19 @@ repeat(4) { counter ->
             println("I'm task number $counter")
         }
     }
+}
 
+task("myTask") {
+    ext {
+        set("myProperty", 100)
+    }
+}
+
+task("printTaskProperties") {
+    doLast {
+        tasks.getByName("myTask") {
+            val myProperty: Int by ext
+            println(myProperty)
+        }
+    }
 }
