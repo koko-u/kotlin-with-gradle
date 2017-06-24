@@ -1,3 +1,5 @@
+import com.dorongold.gradle.tasktree.TaskTreeTask
+
 val taskDescription = "Projects and Tasks"
 // ProjectExtensions.kt に task 拡張関数が定義されている
 // fun Project.task(name: String, configuration: Task.() -> Unit): DefaultTask
@@ -23,3 +25,11 @@ val intro = task("intro") {
     }
 }
 
+plugins {
+    id("com.dorongold.task-tree") version "1.3"
+}
+
+tasks.withType<TaskTreeTask> {
+    isNoRepeat = true
+    impliesSubProjects = true
+}
