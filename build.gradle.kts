@@ -33,7 +33,7 @@ tasks.withType<KotlinCompile> {
     }
 }
 tasks.withType<ShadowJar> {
-    with(manifest.attributes) {
-        put("Main-Class", "jp.co.kokou.sample.MainKt")
+    manifest {
+        attributes["Main-Class"] = "jp.co.kokou.sample.MainKt"
     }
 }
