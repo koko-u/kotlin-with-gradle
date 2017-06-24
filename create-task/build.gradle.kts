@@ -33,3 +33,18 @@ tasks.withType<TaskTreeTask> {
     isNoRepeat = true
     impliesSubProjects = true
 }
+
+repeat(4) { counter ->
+    task("task$counter") {
+        description = "Count number $counter task"
+        group = taskDescription
+        
+        if (counter > 0) {
+            dependsOn("task${counter-1}")
+        }
+        doLast {
+            println("I'm task number $counter")
+        }
+    }
+
+}
