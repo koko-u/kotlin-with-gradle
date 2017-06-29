@@ -9,6 +9,8 @@
       <module name="dependency-management_test" target="1.8" />
       <module name="kotlin-with-gradle_main" target="1.8" />
       <module name="kotlin-with-gradle_test" target="1.8" />
+      <module name="spek-sample_main" target="1.8" />
+      <module name="spek-sample_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
