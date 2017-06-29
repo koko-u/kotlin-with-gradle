@@ -29,7 +29,7 @@ dependencies {
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         javaParameters = true
-        jvmTarget = "1.8"
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 }
 tasks.withType<ShadowJar> {
