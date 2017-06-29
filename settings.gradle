@@ -3,5 +3,6 @@ rootProject.name = 'kotlin-with-gradle'
 
 include(
         ":dependency-management",
-        ":create-task"
+        ":create-task",
+        ":spek-sample"
 )
