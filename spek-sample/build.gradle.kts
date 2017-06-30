@@ -1,3 +1,5 @@
+import jp.co.kokou.sample.ext.filters
+import jp.co.kokou.sample.ext.engines
 import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformJvmPlugin
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.junit.platform.gradle.plugin.*
@@ -50,38 +52,5 @@ tasks.withType<KotlinCompile> {
     kotlinOptions {
         javaParameters = true
         jvmTarget = JavaVersion.VERSION_1_8.toString()
-    }
-}
-
-
-// extension for configuration
-fun JUnitPlatformExtension.filters(setup: FiltersExtension.() -> Unit) {
-    when (this) {
-        is ExtensionAware -> extensions.getByType(FiltersExtension::class.java).setup()
-        else -> throw Exception("${this::class} must be an instance of ExtensionAware")
-    }
-}
-fun JUnitPlatformExtension.selectors(setup: SelectorsExtension.() -> Unit) {
-    when (this) {
-        is ExtensionAware -> extensions.getByType(SelectorsExtension::class.java).setup()
-        else -> throw Exception("${this::class} must be an instance of ExtensionAware")
-    }
-}
-fun FiltersExtension.engines(setup: EnginesExtension.() -> Unit) {
-    when (this) {
-        is ExtensionAware -> extensions.getByType(EnginesExtension::class.java).setup()
-        else -> throw Exception("${this::class} must be an instance of ExtensionAware")
-    }
-}
-fun FiltersExtension.tags(setup: TagsExtension.() -> Unit) {
-    when (this) {
-        is ExtensionAware -> extensions.getByType(TagsExtension::class.java).setup()
-        else -> throw Exception("${this::class} must be an instance of ExtensionAware")
-    }
-}
-fun FiltersExtension.packages(setup: PackagesExtension.() -> Unit) {
-    when (this) {
-        is ExtensionAware -> extensions.getByType(PackagesExtension::class.java).setup()
-        else -> throw Exception("${this::class} must be an instance of ExtensionAware")
     }
 }
